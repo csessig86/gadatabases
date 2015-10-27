@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyString
+  Department: MyString
+  Position: MyString
+  Gender: MyString
+  County: MyString
+  2014 salary: 9.99
+  Travel subsistence: 9.99
+
+two:
+  Name: MyString
+  Department: MyString
+  Position: MyString
+  Gender: MyString
+  County: MyString
+  2014 salary: 9.99
+  Travel subsistence: 9.99

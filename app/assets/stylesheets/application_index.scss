@@ -1,0 +1,12 @@
+/*
+ *= require application
+ *= require _base/base
+ */
+
+.table > tbody > tr > td {
+ 	vertical-align: middle;
+ }
+
+ table tbody tr td:nth-child(1) {
+ 	width: 25%;
+ }

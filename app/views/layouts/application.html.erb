@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<%= display_meta_tags %>
+	<meta property="og:type" content="article"/>
+	<meta property="og:image" content="<%= image_url('glogo.png') %>" />
+	<meta property="twitter:site" content="@gazettedotcom">
+	<meta property="twitter:card" content="summary">
+
+	<!-- Basic -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+	<link rel="shortcut icon" href="<%= image_url('glogo.png') %>" />
+
+	<!-- Mobile meta tags-->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="cleartype" content="on">
+	<link rel="apple-touch-icon" href="<%= image_url('glogo.png') %>"/>
+	
+	<%= csrf_meta_tags %>
+
+	<!-- CSS -->
+	<% if @record.nil? || current_page?(:action => "edit") %>
+		<%= stylesheet_link_tag 'application_index',
+			'data-turbolinks-track' => true
+		%>
+	<% else %>
+		<%= stylesheet_link_tag 'application' + params[:id].to_s,
+			'data-turbolinks-track' => true
+		%>
+	<% end %>
+</head>
+<body>
+	<!-- Content-->
+	<div class="content">
+		<!-- Header-->
+		<div class="header">
+		  <div class="logos">
+				<a href="http://www.thegazette.com">
+					<img class="logo-gazette hide-mobile" src="<%= image_url('gazette-logo-inverse.png') %>" />
+					<img class="logo-gazette-mobile hide-desktop show-mobile-inline" src="<%= image_url('gazette-g.png') %>" />
+				</a>
+				<a href="http://www.thegazette.com/data">
+					<img class="data-center hide-350 logo-gazette spaced" src="<%= image_url('datacenter-logo_1024.png') %>" />
+					<img class="data-center hide-desktop show-350-inline logo-gazette spaced" src="<%= image_url('datacenter_nologo.png') %>" />
+				</a>
+			</div>
+
+			<h1 class="hide-iframe"></h1>
+
+			<!-- Share-->
+			<div id="share">
+				<ul>
+					<li id="share-first-li"></li>
+					<li id="share-next-li"></li>
+					<li class="hide-900 link" id="share-first-li">
+						<a title="Sports" class="share-action" href="http://thegazette.com/sports">Sports</a>
+					</li>
+					<li class="hide-900 link" id="share-first-li">
+						<a title="Tweet" class="share-action twitter" href="http://thegazette.com/news">News</a>
+					</li>
+				</ul>
+			</div>
+		<!-- Closes header-->
+		</div>
+		<div id="body">
+			<div id="body-content">
+				<% if @record.nil? && !current_page?(:action => "new") %>
+			    <div id="user-nav">
+						<% if user_signed_in? %>
+							Signed in as <%= current_user.email %>. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+						<% else %>
+						 	<%= link_to "Sign in", new_user_session_path %>
+						<% end %>
+					</div>
+				<% end %>
+				
+				<% flash.each do |message_type, message| %>
+					<%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+				<% end %>
+
+				<%= yield %>
+
+			</div>
+
+			<div id="footer">
+				All content copyright 2014, Gazette Communications, 500 Third Avenue SE, Cedar Rapids, Iowa 52401. Read <a href="http://thegazette.com/about-us/">more about us</a> or <a href="mailto:ustomercare@sourcemedia.net">e-mail us</a>.
+			</div>
+		</div>
+
+		<!-- Spin.js -->
+		<%= javascript_include_tag 'spin.min',
+			'data-turbolinks-track' => true
+		%>
+		<script>
+		var opts = {
+			lines: 13, // The number of lines to draw
+			length: 20, // The length of each line
+			width: 10, // The line thickness
+			radius: 30, // The radius of the inner circle
+			corners: 1, // Corner roundness (0..1)
+			rotate: 0, // The rotation offset
+			direction: 1, // 1: clockwise, -1: counterclockwise
+			color: '#000', // #rgb or #rrggbb or array of colors
+			speed: 1, // Rounds per second
+			trail: 60, // Afterglow percentage
+			shadow: false, // Whether to render a shadow
+			hwaccel: false, // Whether to use hardware acceleration
+			className: 'spinner', // The CSS class to assign to the spinner
+			zIndex: 2e9, // The z-index (defaults to 2000000000)
+			top: '300px', // Top position relative to parent
+			left: '50%' // Left position relative to parent
+		};
+		var target = document.getElementById('content-box');
+		var spinner = new Spinner(opts);
+		spinner.spin(target);
+		</script>
+
+		<!-- JS -->
+		<%= javascript_include_tag 'application' + params[:id].to_s %>
+</body>
+</html>

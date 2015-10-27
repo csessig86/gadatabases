@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyString
+  Citation type: MyString
+  Violation date: 2015-10-08 16:17:25
+  Intersection: MyString
+  Intersection details: MyString
+  Speed: MyString
+  City: MyString
+  State: MyString
+  dataset_id: 
+
+two:
+  Name: MyString
+  Citation type: MyString
+  Violation date: 2015-10-08 16:17:25
+  Intersection: MyString
+  Intersection details: MyString
+  Speed: MyString
+  City: MyString
+  State: MyString
+  dataset_id: 

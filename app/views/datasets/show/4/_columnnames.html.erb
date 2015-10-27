@@ -1,0 +1,23 @@
+<% @record.columns.map(&:name).each do |column_name| %>
+	<% if column_name != 'id' && column_name != 'created_at' && column_name != 'updated_at' && column_name != 'County' && column_name != 'SalaryJuly2012' %>
+		
+		<% if column_name == 'TotalFY12Salary' %>
+			<% output = 'TotalFY12Salary | Salary' %>
+		<% elsif column_name == 'TravelSubsistence' %>
+			<% output = 'TravelSubsistence | Travel' %>
+		<% else %>
+			<% output = column_name %>
+		<% end %>
+
+		<% if type == 'th' %>
+			<th><%= sortable output %></th>
+		<% elsif type == 'td' %>
+			
+			<% if column_name == 'TotalFY12Salary' || column_name == 'TravelSubsistence' %>
+				<td class="number" data-title="<%= output %>">$<%= number_with_delimiter(record[column_name], :delimiter => ',') %></td>
+			<% else %>
+				<td data-title="<%= output %>"><%= record[column_name] %></td>
+			<% end %>
+		<% end %>
+	<%end %>
+<% end %>

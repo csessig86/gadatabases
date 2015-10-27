@@ -1,0 +1,24 @@
+<% set_meta_tags site: "The Gazette",
+reverse: true,
+title: "Edit Dataset",
+description: "Edit the current dataset uploaded to The Gazette.",
+keywords: %w[cedar rapids the gazette data],
+canonical: "",
+og: {
+  title: "Edit the current dataset uploaded to The Gazette.",
+  url: ""
+}
+%>
+<h1>Editing Dataset</h1>
+
+<p id="first-p"></p>
+<%= render 'form' %>
+
+<div id="btn-show-back" class="btn-group">
+	<div class="btn btn-default">
+		<%= link_to 'Show', @dataset %>
+	</div>
+	<div class="btn btn-default">
+		<%= link_to 'Back', datasets_path %>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+<% set_meta_tags site: "The Gazette",
+reverse: true,
+title: @dataset.dataset_name,
+description: @dataset.description,
+keywords: %w[traffic cameras iowa],
+canonical: "",
+og: {
+  title: "Traffic citations in Iowa from 2010 to 2014",
+  url: ""
+}
+%>
+
+<%= render 'header' %>
+<div id="content-box">
+  <p id="first-p" class="intro-text"><%= @dataset.description %></p>
+  <div id="table-container">
+    <%= render partial: 'dropdown', locals: {text: "Citations", query: @record.uniq.pluck("Citationtype"), scope: :scope_one} %>
+    <%= render partial: 'dropdown', locals: {text: "Intersections", query: @record.uniq.pluck(:intersection), scope: :scope_two} %>
+    <%= render partial: 'dropdown', locals: {text: "Cities", query: @record.uniq.pluck(:city), scope: :scope_three} %>
+
+    <table id="table" class="table">
+      <thead>
+        <tr>
+        	<th><%= sortable "Name" %></th>
+          <th><%= sortable "Citationtype | Citation" %></th>
+          <th><%= sortable "Violationdate | Date" %></th>
+          <th><%= sortable "Intersectiondetails | Intersection" %></th>
+          <th><%= sortable "Speed" %></th>
+          <th><%= sortable "City" %></th>
+        </tr>
+      </thead>
+      <tbody>
+      	<% @record.paginate(:page => params[:page]).each do |record| %>
+          <tr>
+            <td data-title="Name:"><%= record["Name"] %></td>
+            <td data-title="Citation:"><%= record["Citationtype"] %></td>
+            <td data-title="Date:"><%= record["Violationdate"] %></td>
+            <td data-title="Intersection:"><%= record["Intersectiondetails"] %></td>
+            <td class="number" data-title="Speed":><%= record["Speed"] %></td>
+            <td data-title="City:"><%= record["City"] %></td>
+          </tr>
+      	<% end %>
+    	</tbody>
+    </table>
+
+    <%= will_paginate @record_items %>
+  </div>
+<%= render 'footer' %>

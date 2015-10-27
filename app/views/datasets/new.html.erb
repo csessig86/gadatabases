@@ -1,0 +1,20 @@
+<% set_meta_tags site: "The Gazette",
+reverse: true,
+title: "New Dataset",
+description: "Upload a new dataset to The Gazette.",
+keywords: %w[cedar rapids the gazette data],
+canonical: "",
+og: {
+  title: "Upload a new dataset to The Gazette.",
+  url: ""
+}
+%>
+
+<h1>New Dataset</h1>
+
+<p id="first-p"></p>
+<%= render 'form' %>
+
+<div id="btn-back" class="btn btn-default">
+	<%= link_to 'Back', datasets_path %>
+</div>

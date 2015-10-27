@@ -1,0 +1,67 @@
+<%= form_for(@dataset) do |f| %>
+  <% if @dataset.errors.any? %>
+    <div class="alert alert-danger">
+      <strong><%= pluralize(@dataset.errors.count, "error") %> prohibited this dataset from being saved:</strong>
+
+      <ul>
+      <% @dataset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :dataset_name %><br>
+    <%= f.text_field :dataset_name, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  
+  <% if params[:action] != 'edit' %>
+    <div id="fields" class="field form-group required">
+      <%= f.label :fields %><br>
+      <%= f.text_area :fields, class: "form-control" %>
+      <p class="form-note">* This is where you enter all the columns in the spreadsheet you are uploading and each column's type. It should be formatted like so: <strong>Department:string Name:string Position:string TotalFY13Salary:integer TravelSubsistence:integer</strong><br />
+      In this example, "Department" is the column name and "string" is the column type, etc.<br />
+      For more information on column types, visit <a href="http://stackoverflow.com/a/11894584/5124566" target="_blank">this site</a>.</p>
+    </div>
+  <% end %>
+
+  <% if params[:action] == 'new' %>
+    <div class="field form-group required">
+  <% else %>
+    <div class="field form-group">
+  <% end %>
+    <%= f.label :file %><br>
+    <%= f.file_field :file, class: 'filestyle' %>
+    <p class="form-note">* Upload make take several minutes, depending on the site of the spreadsheet. You must uploaded a CSV file. Also make sure the column names don't have spaces in them.<br />
+    Also worth noting: Rails is particular about dates. Here's a correct date format, which is available in Excel: <strong>15-Mar-2005</strong><br />
+    This date equals March 15, 2005. Please convert the dates before uploading</p>
+  </div>
+
+  <div class="field form-group" style="width: 49%; float: left">
+    <%= f.label :default_sort_column %><br>
+    <%= f.text_field :default_sort_column, class: "form-control" %>
+    <p class="form-note">* This is where you set the default column you wish to sort by. Example: <strong>TotalFY13Salary</strong></p>
+  </div>
+
+  <div class="field form-group" style="width: 49%; float: right">
+    <%= f.label :default_sort_direction %><br>
+    <%= f.text_field :default_sort_direction, class: "form-control" %>
+    <p class="form-note">* This is where you set the direction you want the default column to be sorted by. You can select either <strong>desc</strong> or <strong>asc</strong>.</p>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit nil, warning: 'Dataset is being loaded...' %>
+  </div>
+
+  <% if params[:action] == 'new' %>
+    <div class="required-note">
+      <span>*</span> These fields are required
+    </div>
+  <% end %>
+<% end %>

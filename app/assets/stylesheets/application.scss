@@ -1,0 +1,154 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require datatables.min
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+/* Mixins */
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Base */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+/* Alerts */
+.alert {
+  margin-top: 15px;
+  float: left;
+  width: 100%;
+}
+
+.alert > ul {
+  margin-top: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+	label {
+  	color: #a94442;
+	}
+
+	input {
+  	padding: 5px;
+  	display: table;
+	}
+}
+
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert, .field_with_errors input  {
+  @extend .alert-danger;
+}
+
+.actions input {
+	@extend .btn;
+	@extend .btn-primary;
+}
+
+.btn a:hover, .btn a:focus {
+  text-decoration: none
+}
+
+/* Debug */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* Forms */
+.new_dataset .actions, .edit_dataset .actions, .new_user .actions, #btn-back, #btn-show-back {
+	margin-top: 30px;
+}
+
+.new_dataset #btn-back, {
+
+}
+
+.new_user .remember-me label {
+	margin-top: 10px;
+}
+
+.form-group br {
+  display: none;
+}
+
+.form-note {
+  color: #777;
+
+  br {
+    display: block
+  }
+}
+
+.form-group.required label:after {
+  content:" *";
+  color: red;
+}
+
+.form-group.required .group-span-filestyle label:after {
+  content: "";
+}
+
+.required-note {
+  margin-top: 15px;
+
+  span {
+    color: red;
+  }
+}
+
+/* Dropdown select */
+.dropdown-menu {
+	height: auto;
+	max-height: 200px;
+	overflow-x: hidden;
+}
+
+/* User log in, log out */
+#user-nav {
+	margin-top: 10px;
+	text-align: right;
+	width: 100%;
+	color: #999;
+}
+
+#user-nav a {
+	font-weight: bold;
+	margin: 10px 0;
+}
