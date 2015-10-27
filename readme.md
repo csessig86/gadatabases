@@ -75,6 +75,8 @@
 	git push
 
 ######Deploying to Heroku:
+	git push heroku master
+
+######Precompile commands (if need be):
 	RAILS_ENV=development bundle exec rake assets:precompile --trace
 	RAILS_ENV=production bundle exec rake assets:precompile --trace
-	git push heroku master
