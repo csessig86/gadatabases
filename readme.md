@@ -68,3 +68,7 @@
 ######Add new user:
 	rails console
 	User.create(:email => 'email_here@example.com', :password => 'password_here', :password_confirmation => 'password_here')
+
+######Deploying to Heroku:
+	First deploy to Github. Then follow these [instructions](https://devcenter.heroku.com/articles/getting-started-with-rails4#deploy-your-application-to-heroku)
+	RAILS_ENV=production bundle exec rake assets:precompile --trace
