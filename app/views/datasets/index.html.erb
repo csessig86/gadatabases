@@ -17,6 +17,7 @@ og: {
   <thead>
     <tr>
       <th>Dataset name</th>
+      <th>Uploaded</th>
       <th>Description</th>
       <th colspan="2"></th>
     </tr>
@@ -26,6 +27,9 @@ og: {
     <% @datasets.each do |dataset| %>
       <tr>
         <td><%= dataset.dataset_name %></td>
+        <td>
+          <%= dataset.created_at.strftime("%m/%d/%Y") %>
+        </td>
         <td><%= dataset.description %></td>
         <td><%= link_to 'Show', dataset %></td>
         <% if user_signed_in? && Rails.env.development? %>

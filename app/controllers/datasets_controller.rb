@@ -11,7 +11,7 @@ class DatasetsController < ApplicationController
   # GET /datasets
   # GET /datasets.json
   def index
-    @datasets = Dataset.all
+    @datasets = Dataset.all.where("created_at is not null").order("created_at desc")
   end
 
   # GET /datasets/1
