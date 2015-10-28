@@ -1,5 +1,5 @@
 RECORD=$1
-FIELDS=`cat new-record-fields.txt`
+FIELDS=`cat shell/new-record-fields.txt`
 
 function newRecord() {
 	# Generate the model 

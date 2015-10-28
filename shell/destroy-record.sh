@@ -9,7 +9,7 @@ function destroyRecord() {
 
 	# This ruby script create a migration file
 	# That will destroy the record in the DB
-	ruby db/drop_file_migrate.rb $RECORD
+	ruby shell/drop-file-migrate.rb $RECORD
 
 	# Migrate DB
 	bundle exec rake db:migrate

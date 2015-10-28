@@ -61,9 +61,9 @@ class DatasetsController < ApplicationController
         # Create new record in DB for the dataset
         # And copy base assets to new folder
         if !@dataset.errors.any?
-          system('rm new-record-fields.txt')
-          system('echo ' + params[:dataset][:fields] + ' >> new-record-fields.txt')
-          system('sh new-record.sh ' + @dataset.id.to_s)
+          system('rm shell/new-record-fields.txt')
+          system('echo ' + params[:dataset][:fields] + ' >> shell/new-record-fields.txt')
+          system('sh shell/new-record.sh ' + @dataset.id.to_s)
         end
       end
 
@@ -108,7 +108,7 @@ class DatasetsController < ApplicationController
   # DELETE /datasets/1.json
   def destroy
     if user_signed_in?
-      system('sh destroy-record.sh ' + @dataset.id.to_s)
+      system('sh shell/destroy-record.sh ' + @dataset.id.to_s)
 
       @dataset.destroy
       respond_to do |format|

@@ -95,12 +95,8 @@
 	postgres -D /usr/local/var/postgres
 	psql db/development
 
-######Dump local DB to Heroku DB:
-	pg_dump -Fc --no-acl --no-owner -h localhost db/development > db/gadatabases_01.dump
-	heroku pg:backups restore 'http://files.gazlab.com/content-host/db_dumps/gadatabases_01.dump' DATABASE_URL
+######Deploy to Github and Heroku:
+	sh shell/push.sh "Commit message goes here"
 
-######Deploying to Github and Heroku:
-	git add .
-	git commit -m "Message here"
-	git push
-	git push heroku master
+######Deploy AND dump the local DB to the Heroku DB:
+	sh shell/push.sh "Commit message goes here" dump
