@@ -8,7 +8,7 @@
 	gem 'paperclip', '~> 4.3.1'
 	gem 'bootstrap-sass', '3.2.0.0'
 
-#####Generate Devise MVC:
+######Generate Devise MVC:
 	bundle install
 	rails generate devise:install
 	rails generate devise User
@@ -69,14 +69,38 @@
 	rails console
 	User.create(:email => 'email_here@example.com', :password => 'password_here', :password_confirmation => 'password_here')
 
-######Deploying to Github:
+######Set up PostgreSQL by pasting this in config/database.yml:
+	development:
+	  adapter: postgresql
+	  encoding: unicode
+	  database: db/development
+	  pool: 5
+	  timeout: 5000
+
+	test:
+	  adapter: postgresql
+	  encoding: unicode
+	  database: db/test
+	  pool: 5
+	  timeout: 5000
+
+	production:
+	  adapter: postgresql
+	  encoding: unicode
+	  database: db/production
+	  pool: 5
+	  timeout: 5000
+
+######Fire up PostgreSQL:
+	postgres -D /usr/local/var/postgres
+	psql db/development
+
+######Dump local DB to Heroku DB:
+	pg_dump -Fc --no-acl --no-owner -h localhost db/development > db/development.dump
+	heroku pg:backups restore 'https://s3.amazonaws.com/me/items/3H0q/mydb.dump' DATABASE_URL
+
+######Deploying to Github and Heroku:
 	git add .
 	git commit -m "Message here"
 	git push
-
-######Deploying to Heroku:
 	git push heroku master
-
-######Precompile commands (if need be):
-	RAILS_ENV=development bundle exec rake assets:precompile --trace
-	RAILS_ENV=production bundle exec rake assets:precompile --trace
