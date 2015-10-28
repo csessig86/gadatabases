@@ -11,7 +11,7 @@ git commit -m "$COMMIT_MESSAGE"
 git push
 
 # Push to Heroku
-git push master heroku
+git push heroku master
 
 if [ "$DUMP_DB" == "dump" ]
 then
