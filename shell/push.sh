@@ -6,7 +6,7 @@ now="$(date +'%Y%m%d%s')"
 
 # Push to Github
 git add .
-git commit -m $COMMIT_MESSAGE
+git commit -m "Automation"
 git push
 
 # Push to Heroku
