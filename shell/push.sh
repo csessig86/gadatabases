@@ -1,12 +1,13 @@
 COMMIT_MESSAGE=$1
 DUMP_DB=$2
 
+
 # Current time
 now="$(date +'%Y%m%d%s')"
 
 # Push to Github
 git add .
-git commit -m "Automation"
+git commit -m "$COMMIT_MESSAGE"
 git push
 
 # Push to Heroku
