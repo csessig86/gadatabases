@@ -10,7 +10,7 @@ og: {
 }
 %>
 
-<h1>Listing Datasets</h1>
+<h1>- Listing Datasets</h1>
 
 <p id="first-p"></p>
 <table class="table">
@@ -28,7 +28,7 @@ og: {
         <td><%= dataset.dataset_name %></td>
         <td><%= dataset.description %></td>
         <td><%= link_to 'Show', dataset %></td>
-        <% if user_signed_in? %>
+        <% if user_signed_in? && Rails.env.development? %>
           <td><%= link_to 'Edit', edit_dataset_path(dataset) %></td>
           <td class="destroy"><%= link_to 'Destroy', dataset, method: :delete, :data => {:confirm => 'Are you sure?'} %></td>
         <% end %>
