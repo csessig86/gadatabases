@@ -1,1 +1,1 @@
-NAME:string AGE:integer GENDER:string CHARGES:string LOCATIONOFARREST:string DATE:date
+date:date year:integer address:string city:string responsetime:decimal lat:decimal long:decimal

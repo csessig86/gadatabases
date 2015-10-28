@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021175541) do
+ActiveRecord::Schema.define(version: 20151028163510) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "datasets", force: :cascade do |t|
     t.string   "dataset_name"
@@ -28,55 +31,55 @@ ActiveRecord::Schema.define(version: 20151021175541) do
   end
 
   create_table "record1s", force: :cascade do |t|
-    t.string   "Name"
-    t.string   "Department"
-    t.string   "Position"
-    t.string   "Gender"
-    t.string   "County"
+    t.string   "name"
+    t.string   "department"
+    t.string   "position"
+    t.string   "gender"
+    t.string   "county"
     t.integer  "salary2014"
-    t.decimal  "Travelsubsistence"
+    t.decimal  "travelsubsistence"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
 
   create_table "record2s", force: :cascade do |t|
-    t.string   "Name"
-    t.string   "Citationtype"
-    t.date     "Violationdate"
-    t.string   "Intersection"
-    t.string   "Intersectiondetails"
-    t.integer  "Speed"
-    t.string   "City"
-    t.string   "State"
+    t.string   "name"
+    t.string   "citationtype"
+    t.date     "violationdate"
+    t.string   "intersection"
+    t.string   "intersectiondetails"
+    t.integer  "speed"
+    t.string   "city"
+    t.string   "state"
     t.integer  "dataset_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
 
-  add_index "record2s", ["dataset_id"], name: "index_record2s_on_dataset_id"
+  add_index "record2s", ["dataset_id"], name: "index_record2s_on_dataset_id", using: :btree
 
   create_table "record3s", force: :cascade do |t|
-    t.string   "Department"
-    t.string   "Name"
-    t.string   "Gender"
-    t.string   "County"
-    t.string   "Position"
-    t.integer  "SalaryJuly2013"
-    t.integer  "TotalFY13Salary"
-    t.integer  "TravelSubsistence"
+    t.string   "department"
+    t.string   "name"
+    t.string   "gender"
+    t.string   "county"
+    t.string   "position"
+    t.integer  "salaryjuly2013"
+    t.integer  "totalfy13salary"
+    t.integer  "travelsubsistence"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
 
   create_table "record4s", force: :cascade do |t|
-    t.string   "Department"
-    t.string   "Name"
-    t.string   "Gender"
-    t.string   "County"
-    t.string   "Position"
-    t.integer  "SalaryJuly2012"
-    t.integer  "TotalFY12Salary"
-    t.integer  "TravelSubsistence"
+    t.string   "department"
+    t.string   "name"
+    t.string   "gender"
+    t.string   "county"
+    t.string   "position"
+    t.integer  "salaryjuly2012"
+    t.integer  "totalfy12salary"
+    t.integer  "travelsubsistence"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -96,7 +99,7 @@ ActiveRecord::Schema.define(version: 20151021175541) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

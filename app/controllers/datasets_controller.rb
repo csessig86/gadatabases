@@ -138,12 +138,12 @@ class DatasetsController < ApplicationController
 
     # Sort columns asc, desc
     def sort_column
-      if !@dataset.default_sort_column.nil?
+      if !@dataset.default_sort_column.nil? &&  @dataset.default_sort_column != ""
         default_column = @dataset.default_sort_column
       else
-        default_column = "name"
+        default_column = @record.column_names[1]
       end
-      
+
       @record.column_names.include?(params[:sort]) ? params[:sort] : default_column
     end
     

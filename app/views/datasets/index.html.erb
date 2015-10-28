@@ -30,7 +30,7 @@ og: {
         <td><%= link_to 'Show', dataset %></td>
         <% if user_signed_in? %>
           <td><%= link_to 'Edit', edit_dataset_path(dataset) %></td>
-          <td class="destroy"><%= link_to 'Destroy', dataset, method: :delete, confirm: 'Are you sure?' %></td>
+          <td class="destroy"><%= link_to 'Destroy', dataset, method: :delete, :data => {:confirm => 'Are you sure?'} %></td>
         <% end %>
       </tr>
     <% end %>
