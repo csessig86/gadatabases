@@ -22,5 +22,5 @@ then
 	ruby shell/ftp-upload.rb
 
 	# Upload to Heroku
-	# heroku pg:backups restore 'http://files.gazlab.com/content-host/db_dumps/gadatabases_'$now'.dump' DATABASE_URL
+	heroku pg:backups restore 'http://files.gazlab.com/content-host/db_dumps/gadatabases_'$now'.dump' DATABASE_URL
 fi
