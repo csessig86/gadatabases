@@ -96,8 +96,8 @@
 	psql db/development
 
 ######Dump local DB to Heroku DB:
-	pg_dump -Fc --no-acl --no-owner -h localhost db/development > db/development.dump
-	heroku pg:backups restore 'https://s3.amazonaws.com/me/items/3H0q/mydb.dump' DATABASE_URL
+	pg_dump -Fc --no-acl --no-owner -h localhost db/development > db/gadatabases_01.dump
+	heroku pg:backups restore 'http://files.gazlab.com/content-host/db_dumps/gadatabases_01.dump' DATABASE_URL
 
 ######Deploying to Github and Heroku:
 	git add .
