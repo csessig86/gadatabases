@@ -22,7 +22,12 @@ class Dataset < ActiveRecord::Base
 
       # Create a row in the DB for each row in the CSV
       CSV.parse(text, headers: true) do |row|
-        @record.create(row.to_hash)
+        new_hash = {}
+        row.to_hash.each_pair do |k,v|
+          new_hash.merge!({k.downcase => v}) 
+        end
+
+        @record.create(new_hash)
       end
     end
   end

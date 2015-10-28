@@ -18,7 +18,7 @@ class DatasetsController < ApplicationController
   # GET /datasets/1.json
   def show
     # Apply scopes
-    @record = apply_scopes(@record).order(sort_column + " " + sort_direction)
+    @record = apply_scopes(@record).where(sort_column + " is not null").order(sort_column + " " + sort_direction)
 
     # Set up pagination
     @record_items = @record.paginate(:page => params[:page])
@@ -143,7 +143,7 @@ class DatasetsController < ApplicationController
       else
         default_column = "name"
       end
-
+      
       @record.column_names.include?(params[:sort]) ? params[:sort] : default_column
     end
     

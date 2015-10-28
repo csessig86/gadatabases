@@ -15,9 +15,9 @@ og: {
 <div id="content-box">
   <p id="first-p" class="intro-text"><%= @dataset.description %></p>
   <div id="table-container">
-    <%= render partial: 'dropdown', locals: {text: "Departments", query: @record.uniq.pluck(:department), scope: :scope_one} %>
-    <%= render partial: 'dropdown', locals: {text: "Positions", query: @record.uniq.pluck(:position), scope: :scope_two} %>
-    <%= render partial: 'dropdown', locals: {text: "Gender", query: @record.uniq.pluck(:gender), scope: :scope_three} %>
+    <%= render partial: 'dropdown', locals: {text: "Departments", query: @record.reorder(:department).uniq.pluck(:department), scope: :scope_one} %>
+    <%= render partial: 'dropdown', locals: {text: "Positions", query: @record.reorder(:position).uniq.pluck(:position), scope: :scope_two} %>
+    <%= render partial: 'dropdown', locals: {text: "Gender", query: @record.reorder(:gender).uniq.pluck(:gender), scope: :scope_three} %>
 
     <table id="table" class="table">
       <thead>

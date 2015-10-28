@@ -77,6 +77,12 @@ gem "rails-backbone"
 	# gem 'rails-assets-jquery', '~> 2.1.4'
 # end
 
+# Postgres
+gem 'pg', '0.18.3'
+
+# Convert SQLite to Postgres
+gem 'taps', '0.3.23'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -92,10 +98,7 @@ group :development, :test do
 
 end
 
-group :production do
-  # Postgres
-  gem 'pg', '0.18.3'
-  
+group :production do  
   gem 'rails_12factor', '0.0.3'
 end
 

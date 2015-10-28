@@ -15,30 +15,30 @@ og: {
 <div id="content-box">
   <p id="first-p" class="intro-text"><%= @dataset.description %></p>
   <div id="table-container">
-    <%= render partial: 'dropdown', locals: {text: "Departments", query: @record.uniq.pluck(:department), scope: :scope_one} %>
-    <%= render partial: 'dropdown', locals: {text: "Positions", query: @record.uniq.pluck(:position), scope: :scope_two} %>
-    <%= render partial: 'dropdown', locals: {text: "Gender", query: @record.uniq.pluck(:gender), scope: :scope_three} %>
+    <%= render partial: 'dropdown', locals: {text: "Departments", query: @record.reorder(:department).uniq.pluck(:department), scope: :scope_one} %>
+    <%= render partial: 'dropdown', locals: {text: "Positions", query: @record.reorder(:position).uniq.pluck(:position), scope: :scope_two} %>
+    <%= render partial: 'dropdown', locals: {text: "Gender", query: @record.reorder(:gender).uniq.pluck(:gender), scope: :scope_three} %>
 
     <table id="table" class="table">
       <thead>
         <tr>
-        	<th><%= sortable "Name" %></th>
-          <th><%= sortable "Department" %></th>
-          <th><%= sortable "Position" %></th>
-          <th><%= sortable "Gender" %></th>
-          <th><%= sortable "SalaryJuly2013 | Salary" %></th>
-          <th><%= sortable "TravelSubsistence | Travel" %></th>
+        	<th><%= sortable "name | Name" %></th>
+          <th><%= sortable "department | Department" %></th>
+          <th><%= sortable "position | Position" %></th>
+          <th><%= sortable "gender | Gender" %></th>
+          <th><%= sortable "salaryjuly2013 | Salary" %></th>
+          <th><%= sortable "travelsubsistence | Travel" %></th>
         </tr>
       </thead>
       <tbody>
       	<% @record.paginate(:page => params[:page]).each do |record| %>
           <tr>
-            <td data-title="Name:"><%= record["Name"] %></td>
-            <td data-title="Department:"><%= record["Department"] %></td>
-            <td data-title="Position:"><%= record["Position"] %></td>
-            <td data-title="Gender:"><%= record["Gender"] %></td>
-            <td class="number" data-title="Salary:">$<%= number_with_delimiter(record["TotalFY13Salary"], :delimiter => ',') %></td>
-            <td class="number" data-title="Travel subsistence:">$<%= number_with_delimiter(record["TravelSubsistence"], :delimiter => ',') %></td>
+            <td data-title="Name:"><%= record["name"] %></td>
+            <td data-title="Department:"><%= record["department"] %></td>
+            <td data-title="Position:"><%= record["position"] %></td>
+            <td data-title="Gender:"><%= record["gender"] %></td>
+            <td class="number" data-title="Salary:">$<%= number_with_delimiter(record["totalfy13salary"], :delimiter => ',') %></td>
+            <td class="number" data-title="Travel subsistence:">$<%= number_with_delimiter(record["travelsubsistence"], :delimiter => ',') %></td>
           </tr>
       	<% end %>
     	</tbody>

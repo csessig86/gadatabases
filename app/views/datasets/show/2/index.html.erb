@@ -14,30 +14,30 @@ og: {
 <div id="content-box">
   <p id="first-p" class="intro-text"><%= @dataset.description %></p>
   <div id="table-container">
-    <%= render partial: 'dropdown', locals: {text: "Citations", query: @record.uniq.pluck("Citationtype"), scope: :scope_one} %>
-    <%= render partial: 'dropdown', locals: {text: "Intersections", query: @record.uniq.pluck(:intersection), scope: :scope_two} %>
-    <%= render partial: 'dropdown', locals: {text: "Cities", query: @record.uniq.pluck(:city), scope: :scope_three} %>
+    <%= render partial: 'dropdown', locals: {text: "Citations", query: @record.reorder(:citationtype).uniq.pluck(:citationtype), scope: :scope_one} %>
+    <%= render partial: 'dropdown', locals: {text: "Intersections", query: @record.reorder(:intersection).uniq.pluck(:intersection), scope: :scope_two} %>
+    <%= render partial: 'dropdown', locals: {text: "Cities", query: @record.reorder(:city).uniq.pluck(:city), scope: :scope_three} %>
 
     <table id="table" class="table">
       <thead>
         <tr>
-        	<th><%= sortable "Name" %></th>
-          <th><%= sortable "Citationtype | Citation" %></th>
-          <th><%= sortable "Violationdate | Date" %></th>
-          <th><%= sortable "Intersectiondetails | Intersection" %></th>
-          <th><%= sortable "Speed" %></th>
-          <th><%= sortable "City" %></th>
+        	<th><%= sortable "name | Name" %></th>
+          <th><%= sortable "citationtype | Citation" %></th>
+          <th><%= sortable "violationdate | Date" %></th>
+          <th><%= sortable "intersectiondetails | Intersection" %></th>
+          <th><%= sortable "speed | Speed" %></th>
+          <th><%= sortable "city | City" %></th>
         </tr>
       </thead>
       <tbody>
       	<% @record.paginate(:page => params[:page]).each do |record| %>
           <tr>
-            <td data-title="Name:"><%= record["Name"] %></td>
-            <td data-title="Citation:"><%= record["Citationtype"] %></td>
-            <td data-title="Date:"><%= record["Violationdate"] %></td>
-            <td data-title="Intersection:"><%= record["Intersectiondetails"] %></td>
-            <td class="number" data-title="Speed":><%= record["Speed"] %></td>
-            <td data-title="City:"><%= record["City"] %></td>
+            <td data-title="Name:"><%= record["name"] %></td>
+            <td data-title="Citation:"><%= record["citationtype"] %></td>
+            <td data-title="Date:"><%= record["violationdate"] %></td>
+            <td data-title="Intersection:"><%= record["intersectiondetails"] %></td>
+            <td class="number" data-title="Speed":><%= record["speed"] %></td>
+            <td data-title="City:"><%= record["city"] %></td>
           </tr>
       	<% end %>
     	</tbody>
