@@ -1,4 +1,4 @@
-[URL](https://gadatabases.herokuapp.com/)
+[VIEW LIVE](https://gadatabases.herokuapp.com/)
 
 ##How I set up this project
 
