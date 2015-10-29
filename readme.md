@@ -1,3 +1,6 @@
+#GADatabases
+This app allows us to easily upload CSV files and turn them into searchable tables.
+
 [VIEW LIVE](https://gadatabases.herokuapp.com/)
 
 ##How I set up this project
