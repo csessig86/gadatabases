@@ -3,6 +3,10 @@ This app allows us to easily upload CSV files and turn them into searchable tabl
 
 [VIEW LIVE](https://gadatabases.herokuapp.com/)
 
+Yu need to run the app locally to upload a spreadsheet and create a new record in the database. You can then upload it to Heroku "Deploy AND dump the local DB to the Heroku DB".
+
+On the web, you can edit datasets and view the searchable tables.
+
 ##How I set up this project
 
 ######Run on command line:
