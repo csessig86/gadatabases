@@ -4,39 +4,3 @@
 	*= require record5/base-datatable
 	*/
 	
-	div.dataTables_wrapper div.dataTables_filter {
-		display: none;
-	}
-
-	#table_wrapper {
-		float: left;
-		width: 100%;
-	}
-
-	#table-container .form-inline {
-		float: right;
-	}
-
-	@media(max-width:800px) {
-		#table-container .form-inline {
-			float: left;
-			width: 100%;
-			margin-top: 15px;
-		}
-
-		#table-container .form-inline p input:nth-of-type(1) {
-			float: left;
-			width: 75%;
-		}
-
-		#table-container .form-inline p input:nth-of-type(2) {
-			float: left;
-			margin-left: 5px;
-		}
-	}
-
-	@media(max-width:650px) {
-		#table-container .form-inline p input:nth-of-type(1) {
-			width: auto;
-		}
-	}
