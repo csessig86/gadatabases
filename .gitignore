@@ -10,10 +10,10 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/db/CaspioData_2015-Sep-10_1600
-/db/sqlite-dumpfile201510271301.sql
+/db/raw
 /db/dumps
 /db/dumps/*.dump
+/db/dumps/*.sql
 
 # Ignore all logfiles and tempfiles.
 /log/*
