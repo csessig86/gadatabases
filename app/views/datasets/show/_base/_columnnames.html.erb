@@ -17,7 +17,7 @@
 		
 			<!-- Example of how to do numbers -->
 			<% if column_name == 'Column with numbers' %>
-				<td data-title="<%= output.split(" | ")[1] %>">
+				<td class="number" data-title="<%= output.split(" | ")[1] %>">
 					$<%= number_with_delimiter(record[column_name], :delimiter => ',') %>
 				</td>
 			<% else %>
