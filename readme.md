@@ -3,9 +3,27 @@ This app allows us to easily upload CSV files and turn them into searchable tabl
 
 [VIEW LIVE](https://gadatabases.herokuapp.com/)
 
-Yu need to run the app locally to upload a spreadsheet and create a new record in the database. You can then upload it to Heroku "Deploy AND dump the local DB to the Heroku DB".
+You need to run the app locally to upload a spreadsheet and create a new record in the database. You can then upload it to Heroku (see "Deploy AND dump the local DB to the Heroku DB").
 
 On the web, you can edit datasets and view the searchable tables.
+
+
+##Running locally
+
+######Fire up Rails server and PostgreSQL (using different tabs):
+	rails server
+	postgres -D /usr/local/var/postgres
+	psql db/development
+	rails console
+
+##Deploying
+
+######Deploy to Github and Heroku:
+	sh shell/push.sh "Commit message goes here"
+
+######Deploy AND dump the local DB to the Heroku DB:
+	sh shell/push.sh "Commit message goes here" dump
+
 
 ##How I set up this project
 
@@ -99,13 +117,3 @@ On the web, you can edit datasets and view the searchable tables.
 	  database: db/production
 	  pool: 5
 	  timeout: 5000
-
-######Fire up PostgreSQL:
-	postgres -D /usr/local/var/postgres
-	psql db/development
-
-######Deploy to Github and Heroku:
-	sh shell/push.sh "Commit message goes here"
-
-######Deploy AND dump the local DB to the Heroku DB:
-	sh shell/push.sh "Commit message goes here" dump
