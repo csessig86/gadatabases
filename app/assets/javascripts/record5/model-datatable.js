@@ -15,7 +15,7 @@ var table = new Table({
 	        // "sType": "formatted-num",
 	        // "bSortable": false
 	    },{
-	        "sWidth": "25%"
+	        "sWidth": "30%"
 	        // "sType": "formatted-num",
 	        // "bSortable": false
 	    },{
@@ -23,7 +23,7 @@ var table = new Table({
 	        // "sType": "formatted-num",
 	        // "bSortable": false
 	    },{
-	        "sWidth": "25%"
+	        "sWidth": "20%"
 	        // "sType": "formatted-num",
 	        // "bSortable": false
 	    },{
