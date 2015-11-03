@@ -1,9 +1,9 @@
 #GADatabases
-This app allows us to easily upload CSV files and turn them into searchable tables.
-
 [VIEW LIVE](https://gadatabases.herokuapp.com/)
 
-You need to run the app locally to upload a spreadsheet and create a new record in the database. You can then upload it to Heroku (see "Deploy AND dump the local DB to the Heroku DB").
+This app allows us to easily upload CSV files and turn them into searchable tables.
+
+You need to run the app locally to upload a spreadsheet and create a new record in the database. You can then upload it to Heroku (see "Deploying").
 
 On the web, you can edit datasets, replace a dataset and view the searchable tables.
 
