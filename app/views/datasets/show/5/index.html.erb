@@ -24,6 +24,10 @@ og: {
         <%= text_field_tag :search, params[:search], class: "form-control" %>
         <%= submit_tag "Search Name", :name => nil, class: "btn btn-default" %>
       </p>
+
+       <% if !params[:search].nil? %>
+        <%= link_to "", dataset_path, class: "glyphicon glyphicon-remove" %>
+      <% end %>
     <% end %>
 
     <table id="table" class="table">

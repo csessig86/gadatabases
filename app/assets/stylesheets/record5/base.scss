@@ -258,7 +258,7 @@ a, .button {
   margin-bottom: 20px;
 }
 
-.dropdown {
+.dropdown, .form-inline {
   float: left;
   margin-right: 10px;
 
@@ -266,9 +266,21 @@ a, .button {
     color: #555;
   }
 
-  a:hover {
+  a:hover, a:active, a:focus {
     text-decoration: none;
     color: #333;
+  }
+}
+
+.form-inline {
+  
+  a {
+    margin-right: 10px;
+    line-height: 33px;
+  }
+
+  p {
+    float: right;
   }
 }
 

@@ -19,29 +19,29 @@
     <% query.compact.each do |record| %>
       <li>
         <% if scope == :scope_one %>
-          <%= link_to record, dataset_path(scope => record, scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five]) %>
+          <%= link_to record, dataset_path(scope => record, scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]) %>
         <% elsif scope == :scope_two %>
-          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five]) %>
+          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]) %>
         <% elsif scope == :scope_three %>
-          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_two: params[:scope_two], scope_four: params[:scope_four], scope_five: params[:scope_five]) %>
+          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_two: params[:scope_two], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]) %>
         <% elsif scope == :scope_four %>
-          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_five: params[:scope_five]) %>
+          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_five: params[:scope_five], search: params[:search]) %>
         <% elsif scope == :scope_five %>
-          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four]) %>
+          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four], search: params[:search]) %>
         <% end %>
       </li>
     <% end %>
   </ul>
   <% if scope == :scope_one && !params[:scope_one].nil? %>
-    <%= link_to "", dataset_path(scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five]), class: "glyphicon glyphicon-remove" %>
+    <%= link_to "", dataset_path(scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]), class: "glyphicon glyphicon-remove" %>
   <% elsif scope == :scope_two && !params[:scope_two].nil? %>
-    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five]), class: "glyphicon glyphicon-remove" %>
+    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]), class: "glyphicon glyphicon-remove" %>
   <% elsif scope == :scope_three && !params[:scope_three].nil? %>
-    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_two: params[:scope_two], scope_four: params[:scope_four], scope_five: params[:scope_five]), class: "glyphicon glyphicon-remove" %>
+    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_two: params[:scope_two], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]), class: "glyphicon glyphicon-remove" %>
   <% elsif scope == :scope_four && !params[:scope_four].nil? %>
-    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_five: params[:scope_five]), class: "glyphicon glyphicon-remove" %>
+    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_five: params[:scope_five], search: params[:search]), class: "glyphicon glyphicon-remove" %>
   <% elsif scope == :scope_five && !params[:scope_five].nil? %>
-    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four]), class: "glyphicon glyphicon-remove" %>
+    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four], search: params[:search]), class: "glyphicon glyphicon-remove" %>
   <% end %>
   </a>
 </div>
