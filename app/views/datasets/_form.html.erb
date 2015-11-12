@@ -58,6 +58,13 @@
     <p class="form-note">* This is where you set the direction you want the default column to be sorted by. You can select either <strong>desc</strong> or <strong>asc</strong>.</p>
   </div>
 
+  <div class="field form-group">
+    <%= f.label :filters %><br>
+    <%= f.text_field :filters, class: "form-control" %>
+    <p class="form-note">* If you want the reader to be able to filter the database by a specific column, add them here. Seperate columns with a commna. Here's an <a href="/datasets/1">example</a>.
+    Example: <strong>department, position, gender</strong></p>
+  </div>
+
   <div class="actions">
     <%= f.submit nil, warning: 'Dataset is being loaded...' %>
   </div>

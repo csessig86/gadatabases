@@ -16,6 +16,15 @@ On the web, you can edit datasets, replace a dataset and view the searchable tab
 	psql db/development
 	rails console
 
+######Run migrations:
+	rails generate migration addfilterstodatasets
+	bundle exec rake db:migrate
+
+######View schema of a database:
+	psql db/development
+	\d datasets;
+
+
 ##Deploying
 
 ######Deploy to Github and Heroku:

@@ -124,7 +124,7 @@ class DatasetsController < ApplicationController
     # Never trust parameters from the scary internet
     # Only allow the white list through.
     def dataset_params
-      params.require(:dataset).permit(:dataset_name, :description, :fields, :default_sort_column, :default_sort_direction, :file)
+      params.require(:dataset).permit(:dataset_name, :description, :fields, :default_sort_column, :default_sort_direction, :filters, :file)
     end
 
     # Use callbacks to share common setup or constraints between actions.
