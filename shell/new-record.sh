@@ -25,6 +25,7 @@ echo "/*
 	*= require record$RECORD/base
 	*= require record$RECORD/base-datatable
 	*= require record$RECORD/view-datatable
+	*= require record$RECORD/view
 	*= require record$RECORD/model-datatable
 	*/" >> app/assets/javascripts/application$RECORD.js
 
