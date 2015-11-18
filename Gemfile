@@ -51,7 +51,7 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 # gem 'activerecord-import', '0.10.0'
 
 # Allow scopes so we can filter tables
-gem 'has_scope', '~> 0.6.0'
+# gem 'has_scope', '~> 0.6.0'
 
 # Meta tags
 gem 'meta-tags', '~> 2.1.0'

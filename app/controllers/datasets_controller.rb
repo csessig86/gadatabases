@@ -1,8 +1,7 @@
 class DatasetsController < ApplicationController
   before_action :set_dataset, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction, :get_scopes, :get_filters
-
-  has_scope :scope_one, :scope_two, :scope_three, :scope_four, :scope_five
+  before_filter :allow_iframe_requests
 
   def id
     return params[:id]
@@ -42,18 +41,6 @@ class DatasetsController < ApplicationController
 
     # Render view
     render 'datasets/show/' + id + '/index'
-  end
-
-  # All scopes on the page, including filters, direction, search
-  # They show up as parameters
-  def get_scopes
-    params.except(:id).except(:controller).except(:action)
-  end
-
-  # Get just the filters for the DBs
-  # They show up as parameters
-  def get_filters
-    get_scopes.except(:utf8).except(:search).except(:direction).except(:sort)
   end
 
   # GET /datasets/new
@@ -164,6 +151,18 @@ class DatasetsController < ApplicationController
       @record = RecordTasks.set_record_number(id)
     end
 
+    # All scopes on the page, including filters, direction, search
+    # They show up as parameters
+    def get_scopes
+      params.except(:id).except(:controller).except(:action)
+    end
+
+    # Get just the filters for the DBs
+    # They show up as parameters
+    def get_filters
+      get_scopes.except(:utf8).except(:search).except(:direction).except(:sort)
+    end
+  
     # Sort columns asc, desc
     def sort_column
       if !@dataset.default_sort_column.nil? &&  @dataset.default_sort_column != ""
@@ -183,5 +182,9 @@ class DatasetsController < ApplicationController
       end
 
       %w[asc desc].include?(params[:direction]) ? params[:direction] : default_direction
+    end
+
+    def allow_iframe_requests
+      response.headers.delete('X-Frame-Options')
     end
 end
