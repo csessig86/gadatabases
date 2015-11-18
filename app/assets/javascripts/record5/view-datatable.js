@@ -12,7 +12,8 @@ var TableView = Backbone.View.extend({
         // Google Analytics
         "change .dataTables_length select": "changeSelect",
         "keyup": "keyUp",
-        "click .dataTable th": "clickTh"
+        "click .dataTable th": "clickTh",
+        "click .embed-chart a": "embedChart"
     },
 
     // Loop through table and dynamically set the table's column widths
@@ -123,6 +124,25 @@ var TableView = Backbone.View.extend({
         if (attributes['category'] === "datatable") {
             tableview.loadDataTable(attributes['dom_element'], model['cid']);
         }
+    },
+
+    // Embed a chart
+    embedChart: function(e) {
+        e.preventDefault();
+
+        // Hide, show the textarea with the embed
+        var textarea = $(e.target).siblings('textarea');
+        var container_left = $(this.el).position().left;
+
+        if ( $(textarea).hasClass('hide-desktop') ) {
+            $(textarea).removeClass('hide-desktop');
+            $(textarea).css({
+                'right': container_left + 'px'
+            });
+        } else {
+            $(textarea).addClass('hide-desktop')
+        }
+
     },
 
     // Google analytics

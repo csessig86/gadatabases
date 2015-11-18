@@ -1,5 +1,6 @@
 <!-- Table container -->
 <div id="table-container">
+  <%= render 'embed' %>
   <% @dataset.filterable_columns.split(',').each do |filter|%>
     <%= render partial: 'dropdown', locals: {text: filter, query: @record.reorder(filter).uniq.pluck(filter), scope: filter} %>
   <% end %>
