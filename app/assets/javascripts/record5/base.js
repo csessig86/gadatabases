@@ -67,7 +67,8 @@ if ( window.self !== window.top ) {
     $('#content-box').css({
         'margin-bottom': '0px'
     });
-    $('.footer-bottom').hide()
+    $('.footer-bottom').hide();
+    $('.footer-scroll').hide();
 }
 
 // Put title of page in the header whenever we scroll to the body content
