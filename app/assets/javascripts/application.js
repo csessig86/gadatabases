@@ -35,7 +35,8 @@ function socialShare(network) {
 	var winLeft = (screen.width / 2) - (winWidth / 2);
 	var url = encodeURIComponent(window.location.href);
 	var headline = $('#body-content h1').text();
-
+	var image = "https://gadatabases.herokuapp.com/assets/datacenter-icon-0d0490109aa013b7d4c0304135eaccd4cf87b950664bc98b0a83dc26e83a9a3f.png";
+	
 	if (network === 'Facebook') {
 		var url_start = 'http://www.facebook.com/sharer.php?s=100';
 	} else if (network === 'Twitter') {
