@@ -61,6 +61,9 @@ if ( window.self !== window.top ) {
     $('.logos').css({
         'width': 'auto'
     });
+    $('.header h1').css({
+        'max-width': '300px'
+    })
 }
 
 // Put title of page in the header whenever we scroll to the body content
