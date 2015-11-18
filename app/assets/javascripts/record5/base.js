@@ -57,7 +57,9 @@ if ( window.self !== window.top ) {
     $('.logo-gazette.spaced').css({
         'border-left': '0px solid #555',
         'margin-left': '0px',
-        'padding-left': '0px',
+    });
+    $('.logos').css({
+        'width': 'auto'
     });
 }
 
