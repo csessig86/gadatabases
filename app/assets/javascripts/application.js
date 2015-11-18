@@ -28,13 +28,14 @@ function showSpinner() {
 }
 
 // Set social buttons
-function socialShare(url, title, descr, image) {
+function socialShare(url, title, descr) {
 	var winWidth = 520;
 	var winHeight = 350;
 	var winTop = (screen.height / 2) - (winHeight / 2);
 	var winLeft = (screen.width / 2) - (winWidth / 2);
 	var url = encodeURIComponent(window.location.href);
 	var title = $('#body-content h1').text();
+	var image = "https://gadatabases.herokuapp.com/assets/glogo-7d263908df19dd6f38bf9636e0bbdeedb83925f47536881bc4d75e96c9f1a677.png"
 
 	window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
 }
@@ -45,7 +46,7 @@ $(document).ready(function() {
 	var url = encodeURIComponent(window.location.href);
 	var headline = $('#body-content h1').text();
 	var twitter = '<a title="Tweet" class="share-action twitter" href="https://twitter.com/share?url=' + url + '&text=Check this out: ' + headline + ' - &via=gazettedotcom" target="_blank"><div class="fa fa-twitter fa-2x icons-share"></div></a>';
-	var facebook = '<a title="Share on Facebook" class="share-action facebook" href="javascript:socialShare(' + "'http://jsfiddle.net/stichoza/EYxTJ/', " + "'Fb Share', " + "'Facebook share popup', " + "'http://goo.gl/dS52U')" + '"><div class="fa fa-facebook fa-2x icons-share"></div></a>';
+	var facebook = '<a title="Share on Facebook" class="share-action facebook" href="javascript:socialShare(' + "'http://jsfiddle.net/stichoza/EYxTJ/', " + "'Fb Share', " + "'Facebook share popup')" + '"><div class="fa fa-facebook fa-2x icons-share"></div></a>';
 	$('#share-first-li').html(twitter);
 	$('#share-next-li').html(facebook);
 
