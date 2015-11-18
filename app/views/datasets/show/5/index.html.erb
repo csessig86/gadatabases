@@ -2,7 +2,7 @@
 reverse: true,
 title: @dataset.dataset_name,
 description: @dataset.description,
-keywords: %w[salaries iowa 2014],
+keywords: %w[salaries iowa 2015],
 canonical: "",
 og: {
   title: @dataset.dataset_name,
@@ -11,31 +11,10 @@ og: {
 %>
 
 <%= render 'header' %>
-<!-- Content box-->
+
 <div id="content-box">
   <p id="first-p" class="intro-text"><%= @dataset.description %></p>
-  <div id="table-container">
-    <%= render partial: 'dropdown', locals: {text: "Departments", query: @record.reorder(:department).uniq.pluck(:department), scope: :scope_one} %>
-    <%= render partial: 'dropdown', locals: {text: "Gender", query: @record.reorder(:gender).uniq.pluck(:gender), scope: :scope_three} %>
-    <%= render partial: 'dropdown', locals: {text: "Positions", query: @record.reorder(:position).uniq.pluck(:position), scope: :scope_two} %>
-    
-    <%= render partial: 'search', locals: {text: "Search Name"} %>
+  <%= render 'table' %>
+</div>
 
-    <table id="table" class="table">
-      <thead>
-        <tr>
-          <%= render partial: 'datasets/show/' + @id + '/columnnames', locals: {type: "th"} %>
-        </tr>
-      </thead>
-      <tbody>
-      	<% @record.paginate(:page => params[:page]).each do |record| %>
-          <tr>
-            <%= render partial: 'datasets/show/' + @id + '/columnnames', locals: {type: "td", record: record} %>
-          </tr>
-      	<% end %>
-    	</tbody>
-    </table>
-
-    <%= will_paginate @record_items %>
-  </div>
 <%= render 'footer' %>

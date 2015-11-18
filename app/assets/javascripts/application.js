@@ -19,6 +19,7 @@
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
+//= require pym
 //= require google-analytics
 
 function showSpinner() {

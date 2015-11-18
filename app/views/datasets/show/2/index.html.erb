@@ -14,9 +14,13 @@ og: {
 <div id="content-box">
   <p id="first-p" class="intro-text"><%= @dataset.description %></p>
   <div id="table-container">
-    <%= render partial: 'dropdown', locals: {text: "Citations", query: @record.reorder(:citationtype).uniq.pluck(:citationtype), scope: :scope_one} %>
-    <%= render partial: 'dropdown', locals: {text: "Intersections", query: @record.reorder(:intersection).uniq.pluck(:intersection), scope: :scope_two} %>
-    <%= render partial: 'dropdown', locals: {text: "Cities", query: @record.reorder(:city).uniq.pluck(:city), scope: :scope_three} %>
+    <% @dataset.filterable_columns.split(',').each do |filter|%>
+    <%= render partial: 'dropdown', locals: {text: filter, query: @record.reorder(filter).uniq.pluck(filter), scope: filter} %>
+  <% end %>
+    
+  <% if !@dataset.searchable_column.nil? %>
+    <%= render partial: 'search', locals: {text: @dataset.searchable_column} %>
+  <% end %>
 
     <table id="table" class="table">
       <thead>

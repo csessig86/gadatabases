@@ -1,5 +1,5 @@
 // Used for Google Analytics
-var project_name = 'Iowa state employee salaries in 2014'
+var project_name = 'Iowa state employee salaries in 2015'
 
 // Events for the body
 var TableView = Backbone.View.extend({
@@ -91,6 +91,8 @@ var TableView = Backbone.View.extend({
                 
                 // Stop spinner once table is loaded
                 spinner.stop();
+
+                pymChild = new pym.Child();
             }
         });
     // Close loadDataTable

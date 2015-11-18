@@ -41,7 +41,7 @@
     <%= f.file_field :file, class: 'filestyle' %>
     <p class="form-note">* Upload make take several minutes, depending on the site of the spreadsheet. You must uploaded a CSV file. Also make sure the column names don't have spaces in them.<br />
     * Note: Rails is particular about dates. Here's a correct date format, which is available in Excel: <strong>15-Mar-2005</strong><br />
-    This date equals March 15, 2005. Please convert the dates before uploading.</p>
+    This date equals March 15, 2005. Please convert the dates before uploading.<br />
     * Note: Please remove commas from numbers as well. As an example: 22000 is correct, while 22,000 is not.</p>
   </div>
 
@@ -58,11 +58,18 @@
     <p class="form-note">* This is where you set the direction you want the default column to be sorted by. You can select either <strong>desc</strong> or <strong>asc</strong>.</p>
   </div>
 
-  <div class="field form-group">
-    <%= f.label :filters %><br>
-    <%= f.text_field :filters, class: "form-control" %>
-    <p class="form-note">* If you want the reader to be able to filter the database by a specific column, add them here. Seperate columns with a commna. Here's an <a href="/datasets/1">example</a>.
-    Example: <strong>department, position, gender</strong></p>
+  <div class="field form-group" style="width: 49%; float: left">
+    <%= f.label :filterable_columns %><br>
+    <%= f.text_field :filterable_columns, class: "form-control" %>
+    <p class="form-note">* If you want the reader to be able to filter the database by a specific column, add them here. Seperate the column names with a commna. Here's an <a href="/datasets/1">example</a>.
+    Example text: <strong>department, position, gender</strong></p>
+  </div>
+
+  <div class="field form-group" style="width: 49%; float: right">
+    <%= f.label :searchable_column %><br>
+    <%= f.text_field :searchable_column, class: "form-control" %>
+    <p class="form-note">* If you want the reader to be able to search a specific column, add it here. You are limited to one column for search. Here's an <a href="/datasets/1">example</a>.
+    Example text: <strong>name</strong></p>
   </div>
 
   <div class="actions">

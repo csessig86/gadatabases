@@ -1,6 +1,6 @@
 class DatasetsController < ApplicationController
   before_action :set_dataset, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_direction, :get_scopes, :get_filters
 
   has_scope :scope_one, :scope_two, :scope_three, :scope_four, :scope_five
 
@@ -17,14 +17,43 @@ class DatasetsController < ApplicationController
   # GET /datasets/1
   # GET /datasets/1.json
   def show
+    # Keep global var so we can basically concat where statements
+    @record_scopes = @record
+
     # Apply scopes
-    @record = apply_scopes(@record).search(params[:search]).where(sort_column + " is not null").order(sort_column + " " + sort_direction)
+    get_filters.each do |scope|
+      # scope[0] = Array key
+      # scope[1] = Array value
+      @record_scopes = @record_scopes.where(scope[0].to_s => scope[1].to_s)
+    end
+
+    # Search using search parameter
+    if !params[:search].nil?
+      @record_search = @record_scopes.where(@dataset.searchable_column + " ILIKE ?", '%' + params[:search] + '%')
+    else
+      @record_search = @record_scopes
+    end
+
+    # Order the record
+    @record = @record_search.where(sort_column + " is not null").order(sort_column + " " + sort_direction)
 
     # Set up pagination
     @record_items = @record.paginate(:page => params[:page])
 
     # Render view
     render 'datasets/show/' + id + '/index'
+  end
+
+  # All scopes on the page, including filters, direction, search
+  # They show up as parameters
+  def get_scopes
+    params.except(:id).except(:controller).except(:action)
+  end
+
+  # Get just the filters for the DBs
+  # They show up as parameters
+  def get_filters
+    get_scopes.except(:utf8).except(:search).except(:direction).except(:sort)
   end
 
   # GET /datasets/new
@@ -50,7 +79,6 @@ class DatasetsController < ApplicationController
       @dataset = Dataset.new(dataset_params)  
       @dataset.id = Dataset.maximum(:id).next
       blank_fields = params[:dataset][:fields] == ''
-
       puts "blank fields: ", blank_fields
 
       # Make sure the Fields field is filled out
@@ -124,7 +152,7 @@ class DatasetsController < ApplicationController
     # Never trust parameters from the scary internet
     # Only allow the white list through.
     def dataset_params
-      params.require(:dataset).permit(:dataset_name, :description, :fields, :default_sort_column, :default_sort_direction, :filters, :file)
+      params.require(:dataset).permit(:dataset_name, :description, :fields, :default_sort_column, :default_sort_direction, :filterable_columns, :searchable_column, :file)
     end
 
     # Use callbacks to share common setup or constraints between actions.

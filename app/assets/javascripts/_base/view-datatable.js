@@ -91,6 +91,8 @@ var TableView = Backbone.View.extend({
                 
                 // Stop spinner once table is loaded
                 spinner.stop();
+
+                pymChild = new pym.Child();
             }
         });
     // Close loadDataTable

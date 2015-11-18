@@ -1,10 +1,20 @@
-<%= form_tag @dataset, class: "form-search form-inline", :method => 'get' do %>
+<%= form_tag dataset_path(get_scopes), class: "form-search form-inline", :method => 'get' do %>
 	<p>
+	  <% get_filters.each do |filter| %>
+	  	<%= hidden_field_tag filter[0], params[filter[0] ] %>
+	 	<% end %>
+
 	  <%= text_field_tag :search, params[:search], class: "form-control" %>
-	  <%= submit_tag text, :name => nil, class: "btn btn-default" %>
+	  <%= submit_tag "Search " + text.squish.capitalize, :name => nil, class: "btn btn-default" %>
 	</p>
 
    <% if !params[:search].nil? %>
-   	<%= link_to "", dataset_path, class: "glyphicon glyphicon-remove" %>
+   	<% final_scope_search = get_filters %>
+   	<% final_scope_search.each do |filter_loop| %>
+   		<% final_scope_search.merge!({filter_loop[0].squish => filter_loop[1]}) %>
+   	<% end %>
+
+   	<%= link_to "", dataset_path(final_scope_search), class: "glyphicon glyphicon-remove" %>
   <% end %>
 <% end %>
+

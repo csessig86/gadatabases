@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112210042) do
+ActiveRecord::Schema.define(version: 20151117201035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,8 @@ ActiveRecord::Schema.define(version: 20151112210042) do
     t.string   "fields"
     t.string   "default_sort_column"
     t.string   "default_sort_direction"
-    t.string   "filters"
+    t.string   "filterable_columns"
+    t.string   "searchable_column"
   end
 
   create_table "record1s", force: :cascade do |t|

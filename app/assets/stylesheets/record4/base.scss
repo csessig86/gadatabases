@@ -261,17 +261,42 @@ a, .button {
 .dropdown {
   float: left;
   margin-right: 10px;
+}
 
+.dropdown, .form-search {
   a {
     color: #555;
   }
 
-  a:hover {
+  a:hover, a:active, a:focus {
     text-decoration: none;
     color: #333;
   }
 }
 
+
+/* Search */
+#table_wrapper {
+  float: left;
+  width: 100%;
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+  display: none;
+}
+
+#table-container .form-search {
+  float: right;
+
+  a {
+    margin-right: 10px;
+    line-height: 33px;
+  }
+
+  p {
+    float: right;
+  }
+}
 
 #footer {
   top: auto;
@@ -394,6 +419,27 @@ a, .button {
   .show-800-inline {
     display: inline;
   }
+
+  #table-container .form-search {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+
+    p {
+      float: left;
+      width: 100%;
+
+      input:nth-of-type(1) {
+        float: left;
+        width: 75%;
+      }
+
+      input:nth-of-type(2) {
+        float: left;
+        margin-left: 5px;
+      }
+    }
+  }
 }
 
 /* Styles for tablets */
@@ -482,6 +528,10 @@ a, .button {
       font-size: 20px;
       margin-left: 10px;
     }
+  }
+
+  #table-container .form-search p input:nth-of-type(1) {
+    width: auto;
   }
 }
 

@@ -1,47 +1,34 @@
 <div class="dropdown">
   <button id="dropdownMenu" class="btn btn-default dropdown-toggle" type="button" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    <% if scope == :scope_one && !params[:scope_one].nil? %>
-      <%= params[:scope_one] %>
-    <% elsif scope == :scope_two && !params[:scope_two].nil? %>
-      <%= params[:scope_two] %>
-    <% elsif scope == :scope_three && !params[:scope_three].nil? %>
-      <%= params[:scope_three] %>
-    <% elsif scope == :scope_four && !params[:scope_four].nil? %>
-      <%= params[:scope_four] %>
-    <% elsif scope == :scope_five && !params[:scope_two].nil? %>
-      <%= params[:scope_five] %>
+    <% if !params[scope.squish].nil? %>
+      <%= params[scope.squish] %>
     <% else %>
-      <%= text %>
+      <%= text.squish.to_s.capitalize %>
     <% end %>
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuå">
     <% query.compact.each do |record| %>
-      <li>
-        <% if scope == :scope_one %>
-          <%= link_to record, dataset_path(scope => record, scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]) %>
-        <% elsif scope == :scope_two %>
-          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]) %>
-        <% elsif scope == :scope_three %>
-          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_two: params[:scope_two], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]) %>
-        <% elsif scope == :scope_four %>
-          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_five: params[:scope_five], search: params[:search]) %>
-        <% elsif scope == :scope_five %>
-          <%= link_to record, dataset_path(scope => record, scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four], search: params[:search]) %>
+      <% final_scope = {scope.squish => record} %>
+      <% get_scopes.each do |scope_loop| %>
+        <% if scope.squish != scope_loop[0].squish %>
+          <% final_scope.merge!({scope_loop[0].squish => scope_loop[1]}) %>
         <% end %>
+      <% end %>
+      <li>
+        <%= link_to record, dataset_path(final_scope) %>
       </li>
     <% end %>
   </ul>
-  <% if scope == :scope_one && !params[:scope_one].nil? %>
-    <%= link_to "", dataset_path(scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]), class: "glyphicon glyphicon-remove" %>
-  <% elsif scope == :scope_two && !params[:scope_two].nil? %>
-    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_three: params[:scope_three], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]), class: "glyphicon glyphicon-remove" %>
-  <% elsif scope == :scope_three && !params[:scope_three].nil? %>
-    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_two: params[:scope_two], scope_four: params[:scope_four], scope_five: params[:scope_five], search: params[:search]), class: "glyphicon glyphicon-remove" %>
-  <% elsif scope == :scope_four && !params[:scope_four].nil? %>
-    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_five: params[:scope_five], search: params[:search]), class: "glyphicon glyphicon-remove" %>
-  <% elsif scope == :scope_five && !params[:scope_five].nil? %>
-    <%= link_to "", dataset_path(scope_one: params[:scope_one], scope_two: params[:scope_two], scope_three: params[:scope_three], scope_four: params[:scope_four], search: params[:search]), class: "glyphicon glyphicon-remove" %>
+  <% if !params[scope.squish].nil? %>
+    <% final_scope_x = get_scopes %>
+    <% final_scope_x.each do |scope_loop| %>
+      <% if scope.squish == scope_loop[0].squish %>
+        <% final_scope_x.delete(scope_loop[0]) %>
+      <% end %>
+    <% end %>
+
+    <%= link_to "", dataset_path(final_scope_x), class: "glyphicon glyphicon-remove" %>
   <% end %>
   </a>
 </div>
