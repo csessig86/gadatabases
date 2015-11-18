@@ -64,6 +64,9 @@ if ( window.self !== window.top ) {
     $('.header h1').css({
         'max-width': '300px'
     });
+    $('#content-box').css({
+        'margin-bottom': '0px'
+    });
     $('.footer-bottom').hide()
 }
 
