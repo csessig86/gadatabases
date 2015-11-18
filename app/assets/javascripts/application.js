@@ -35,7 +35,8 @@ function socialShare(url, title, descr, image) {
 	var winLeft = (screen.width / 2) - (winWidth / 2);
 	var url = encodeURIComponent(window.location.href);
 	var title = $('#body-content h1').text();
-
+	var image = "https://gadatabases.herokuapp.com/assets/datacenter-icon-0d0490109aa013b7d4c0304135eaccd4cf87b950664bc98b0a83dc26e83a9a3f.png";
+	
 	window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
 }
 
