@@ -344,11 +344,12 @@ div.dataTables_wrapper div.dataTables_filter {
 
 /* Embeds */
 .embed-chart {
-  clear: both;
+  float: right;
   text-align: right;
+  margin: 8px 0 8px 10px;
 
   a {
-    padding: 5px 11px;
+    padding: 6px 11px;
     background-color: #777;
     color: #FFF;
   }
@@ -365,7 +366,7 @@ div.dataTables_wrapper div.dataTables_filter {
   textarea {
     z-index: 2;
     position: absolute;
-    margin-top: 25px;
+    margin-top: 5px;
     box-shadow: 0 12px 12px 0 #ccc;
     width: 300px;
     padding: 8px 12px;

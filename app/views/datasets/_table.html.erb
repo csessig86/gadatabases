@@ -1,6 +1,5 @@
 <!-- Table container -->
 <div id="table-container">
-  <%= render 'embed' %>
   <% @dataset.filterable_columns.split(',').each do |filter|%>
     <%= render partial: 'dropdown', locals: {text: filter, query: @record.reorder(filter).uniq.pluck(filter), scope: filter} %>
   <% end %>
@@ -8,7 +7,7 @@
   <% if !@dataset.searchable_column.nil? %>
     <%= render partial: 'search', locals: {text: @dataset.searchable_column} %>
   <% end %>
-
+  
   <table id="table" class="table">
     <thead>
       <tr>
