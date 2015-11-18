@@ -28,29 +28,24 @@ function showSpinner() {
 }
 
 // Set social buttons
-function socialShare(network) {
+function socialShare(url, title, descr) {
 	var winWidth = 520;
 	var winHeight = 350;
 	var winTop = (screen.height / 2) - (winHeight / 2);
 	var winLeft = (screen.width / 2) - (winWidth / 2);
 	var url = encodeURIComponent(window.location.href);
-	var headline = $('#body-content h1').text();
 	var image = "https://gadatabases.herokuapp.com/assets/datacenter-icon-0d0490109aa013b7d4c0304135eaccd4cf87b950664bc98b0a83dc26e83a9a3f.png";
-
-	if (network === 'Facebook') {
-		var url_start = 'http://www.facebook.com/sharer.php?s=100';
-	} else if (network === 'Twitter') {
-		var url_start = 'https://twitter.com/share?url=' + url + '&text=Check this out: ' + headline + ' - &via=gazettedotcom';
-	}
-
-	window.open(url_start + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+	
+	window.open('http://www.facebook.com/sharer.php?s=100&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
 }
 
 // Fire it up
 $(document).ready(function() {
 
-	var twitter = '<a title="Tweet" class="share-action twitter" href="javascript:socialShare(' + "'Twitter'" + ')"><div class="fa fa-twitter fa-2x icons-share"></div></a>';
-	var facebook = '<a title="Share on Facebook" class="share-action facebook" href="javascript:socialShare(' + "'Facebook'" + ')"><div class="fa fa-facebook fa-2x icons-share"></div></a>';
+	var url = encodeURIComponent(window.location.href);
+	var headline = $('#body-content h1').text();
+	var twitter = '<a title="Tweet" class="share-action twitter" href="https://twitter.com/share?url=' + url + '&text=Check this out: ' + headline + ' - &via=gazettedotcom" target="_blank"><div class="fa fa-twitter fa-2x icons-share"></div></a>';
+	var facebook = '<a title="Share on Facebook" class="share-action facebook" href="javascript:socialShare(' + "'http://jsfiddle.net/stichoza/EYxTJ/', " + "'Fb Share', " + "'Facebook share popup')" + '"><div class="fa fa-facebook fa-2x icons-share"></div></a>';
 	$('#share-first-li').html(twitter);
 	$('#share-next-li').html(facebook);
 
