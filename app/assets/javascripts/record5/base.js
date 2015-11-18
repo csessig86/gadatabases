@@ -53,8 +53,12 @@ function formatAddress(address) {
 
 // This is loaded if inside iframe
 if ( window.self !== window.top ) {
-    // $('#sidebar-content-ss-header').hide();
-    // $('.header-sub-iframe').show();
+    $('.logos #gaz-link').hide()
+    $('.logo-gazette.spaced').css({
+        'border-left': '0px solid #555',
+        'margin-left': '0px',
+        'padding-left': '0px',
+    });
 }
 
 // Put title of page in the header whenever we scroll to the body content

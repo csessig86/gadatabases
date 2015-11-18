@@ -11,25 +11,10 @@ og: {
 %>
 
 <%= render 'header' %>
-<!-- Content box-->
+
 <div id="content-box">
   <p id="first-p" class="intro-text"><%= @dataset.description %></p>
-  <div id="table-container">
-    <table id="table" class="table">
-      <thead>
-        <tr>
-          <%= render partial: 'datasets/show/' + @id + '/columnnames', locals: {type: "th"} %>
-        </tr>
-      </thead>
-      <tbody>
-      	<% @record.paginate(:page => params[:page]).each do |record| %>
-          <tr>
-            <%= render partial: 'datasets/show/' + @id + '/columnnames', locals: {type: "td", record: record} %>
-          </tr>
-      	<% end %>
-    	</tbody>
-    </table>
+  <%= render 'table' %>
+</div>
 
-    <%= will_paginate @record_items %>
-  </div>
 <%= render 'footer' %>

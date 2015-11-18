@@ -3,7 +3,7 @@
 <head>
 	<%= display_meta_tags %>
 	<meta property="og:type" content="article"/>
-	<meta property="og:image" content="<%= image_path('glogo.png') %>" />
+	<meta property="og:image" content="https://gadatabases.herokuapp.com<%= image_path('glogo.png') %>" />
 	<meta property="twitter:site" content="@gazettedotcom">
 	<meta property="twitter:card" content="summary">
 
@@ -41,11 +41,11 @@
 		<!-- Header-->
 		<div class="header">
 		  <div class="logos">
-				<a href="http://www.thegazette.com">
+				<a id="gaz-link" href="http://www.thegazette.com" target="_parent">
 					<img class="logo-gazette hide-mobile" src="<%= image_url('gazette-logo-inverse.png') %>" />
 					<img class="logo-gazette-mobile hide-desktop show-mobile-inline" src="<%= image_url('gazette-g.png') %>" />
 				</a>
-				<a href="http://www.thegazette.com/data">
+				<a id="data-link" href="http://www.thegazette.com/data" target="_parent">
 					<img class="data-center hide-350 logo-gazette spaced" src="<%= image_url('datacenter-logo_1024.png') %>" />
 					<img class="data-center hide-desktop show-350-inline logo-gazette spaced" src="<%= image_url('datacenter_nologo.png') %>" />
 				</a>
