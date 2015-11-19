@@ -1,31 +1,31 @@
 // FUNCTIONS
 // Used to capitalize first letter of string
 function capitaliseFirstLetter(string) {
-	return string.charAt(0).toUpperCase() + string.slice(1);
+    return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
 // Used to capitalize first letter of all words
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){
-    	first_letter = txt.charAt(0).toUpperCase();
+        first_letter = txt.charAt(0).toUpperCase();
 
-    	// This captures words with an apostrophe as the second character
-    	// And capitalizes them correctly
-    	// Example: o'brien = O'Brien
-    	if (txt.charAt(1) === "'") {
-    		return first_letter + txt.charAt(1) + txt.charAt(2).toUpperCase() + txt.substr(3).toLowerCase();
-    	} else {
-    		return first_letter + txt.substr(1).toLowerCase();
-    	}
+        // This captures words with an apostrophe as the second character
+        // And capitalizes them correctly
+        // Example: o'brien = O'Brien
+        if (txt.charAt(1) === "'") {
+            return first_letter + txt.charAt(1) + txt.charAt(2).toUpperCase() + txt.substr(3).toLowerCase();
+        } else {
+            return first_letter + txt.substr(1).toLowerCase();
+        }
     });
 }
 
 // Add commas to numbers over 1000
 function commaSeparateNumber(val){
-	while (/(\d+)(\d{3})/.test(val.toString())){
-		val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
-	}
-	return val;
+    while (/(\d+)(\d{3})/.test(val.toString())){
+        val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+    }
+    return val;
 }
 
 // This removes special characters and spaces
@@ -53,8 +53,22 @@ function formatAddress(address) {
 
 // This is loaded if inside iframe
 if ( window.self !== window.top ) {
-    // $('#sidebar-content-ss-header').hide();
-    // $('.header-sub-iframe').show();
+    $('.logos #gaz-link').hide()
+    $('.logo-gazette.spaced').css({
+        'border-left': '0px solid #555',
+        'margin-left': '0px',
+    });
+    $('.logos').css({
+        'width': 'auto'
+    });
+    $('.header h1').css({
+        'max-width': '300px'
+    });
+    $('#content-box').css({
+        'margin-bottom': '0px'
+    });
+    $('.footer-bottom').hide();
+    $('.footer-scroll').hide();
 }
 
 // Put title of page in the header whenever we scroll to the body content

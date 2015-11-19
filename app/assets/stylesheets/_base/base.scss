@@ -342,6 +342,38 @@ div.dataTables_wrapper div.dataTables_filter {
   }
 }
 
+/* Embeds */
+.embed-chart {
+  float: right;
+  text-align: right;
+  margin: 8px 0 8px 10px;
+
+  a {
+    padding: 6px 11px;
+    background-color: #777;
+    color: #FFF;
+  }
+
+  a:hover {
+    text-decoration: none;
+    background-color: #555; 
+  }
+
+  a:focus {
+    text-decoration: none;
+  }
+
+  textarea {
+    z-index: 2;
+    position: absolute;
+    margin-top: 5px;
+    box-shadow: 0 12px 12px 0 #ccc;
+    width: 300px;
+    padding: 8px 12px;
+    border-radius: 0px;
+  }
+}
+
 @media (max-width: 1050px) {
   .header h1 {
       text-align: center;
@@ -424,19 +456,26 @@ div.dataTables_wrapper div.dataTables_filter {
     float: left;
     width: 100%;
     margin-top: 15px;
+    
+    a {
+      margin-left: 15px;
+      margin-right: 0px;
+    }
 
     p {
       float: left;
-      width: 100%;
+      width: 80%;
 
-      input:nth-of-type(1) {
+      #search {
         float: left;
+        margin-left: 0%;
         width: 75%;
       }
 
-      input:nth-of-type(2) {
-        float: left;
-        margin-left: 5px;
+      .btn {
+        float: right;
+        margin-left: 1%;
+        width: 24%;
       }
     }
   }
@@ -523,15 +562,27 @@ div.dataTables_wrapper div.dataTables_filter {
     .dropdown-menu > li > a {
       padding: 6px 20px
     }
-
-    .glyphicon {
-      font-size: 20px;
-      margin-left: 10px;
-    }
   }
 
-  #table-container .form-search p input:nth-of-type(1) {
-    width: auto;
+  .glyphicon {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  #table-container .form-search {
+    p {
+      #search {
+        float: left;
+        margin-left: 0%;
+        width: 60%;
+      }
+
+      .btn {
+        float: left;
+        margin-left: 1%;
+        width: 39%;
+      }
+    }
   }
 }
 
