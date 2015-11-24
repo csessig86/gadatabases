@@ -45,6 +45,6 @@ og: {
 
 <br>
 
-<% if user_signed_in? && Rails.env.development? %>
+<% if user_signed_in? %>
   <%= link_to 'New Dataset', new_dataset_path, class: "btn btn-primary" %>
 <% end %>
