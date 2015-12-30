@@ -49,9 +49,7 @@ function socialShare(network) {
 
 // Fire it up
 $(document).ready(function() {
-
-	var url = encodeURIComponent(window.location.href);
-	var headline = $('#body-content h1').text();
+	// Social buttons
 	var twitter = '<a title="Tweet" class="share-action twitter" href="javascript:socialShare(' + "'Twitter'" + ')"><div class="fa fa-twitter fa-2x icons-share"></div></a>';
 	var facebook = '<a title="Share on Facebook" class="share-action facebook" href="javascript:socialShare(' + "'Facebook'" + ')"><div class="fa fa-facebook fa-2x icons-share"></div></a>';
 	$('#share-first-li').html(twitter);
