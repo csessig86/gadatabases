@@ -3,7 +3,13 @@
     <% if !params[scope.squish].nil? %>
       <%= params[scope.squish] %>
     <% else %>
-      <%= text.squish.to_s.capitalize %>
+      <% if @id == "6" && text.squish.to_s == 'buildingtype' %>
+        Type
+      <% elsif @id == "6" && text.squish.to_s == 'newalterationaddition' %>
+        Status
+      <% else %>
+        <%= text.squish.to_s.capitalize %>
+      <% end %>  
     <% end %>
     <span class="caret"></span>
   </button>

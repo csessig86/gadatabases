@@ -5,7 +5,12 @@
 	 	<% end %>
 
 	  <%= text_field_tag :search, params[:search], class: "form-control" %>
-	  <%= submit_tag "Search " + text.squish.capitalize, :name => nil, class: "btn btn-default" %>
+	  <% if @id == "6" && text.squish.to_s == 'permitholder' %>
+	  	<% search_text = 'Permit' %>
+	  <% else %>
+	  	<% search_text = "Search " + text.squish.capitalize %>
+	  <% end %>
+	  <%= submit_tag search_text, :name => nil, class: "btn btn-default" %>
 	</p>
 
    <% if !params[:search].nil? %>

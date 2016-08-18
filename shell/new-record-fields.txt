@@ -1,1 +1,1 @@
-department:string name:string gender:string county:string position:string salary:integer totalsalary:integer travelsubsistence:integer
+city:string address:string category:string buildingtype:string newalterationaddition:string valuation:integer permitholder:text issuance:date county:string

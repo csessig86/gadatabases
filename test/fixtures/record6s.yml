@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  address: MyString
+  category: MyString
+  buildingtype: MyString
+  newalterationaddition: MyString
+  valuation: 1
+  permitholder: MyText
+  issuance: 2016-08-18
+  county: MyString
+
+two:
+  city: MyString
+  address: MyString
+  category: MyString
+  buildingtype: MyString
+  newalterationaddition: MyString
+  valuation: 1
+  permitholder: MyText
+  issuance: 2016-08-18
+  county: MyString
