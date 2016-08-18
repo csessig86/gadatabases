@@ -1,0 +1,2 @@
+# Revert all uncommitted changes
+git reset --hard && git clean -fd
