@@ -160,7 +160,7 @@ class DatasetsController < ApplicationController
     # Get just the filters for the DBs
     # They show up as parameters
     def get_filters
-      get_scopes.except(:utf8).except(:search).except(:direction).except(:sort)
+      get_scopes.except(:utf8).except(:search).except(:direction).except(:sort).except(:page)
     end
   
     # Sort columns asc, desc
