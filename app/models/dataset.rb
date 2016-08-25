@@ -3,7 +3,7 @@ require 'csv'
 class Dataset < ActiveRecord::Base
 	has_many :records
   has_attached_file :file
-  validates_attachment :file, presence: true, :content_type => { content_type: ['text/csv','application/vnd.ms-excel'] }
+  validates_attachment :file, presence: true, :content_type => { content_type: ['text/plain', 'text/csv','application/vnd.ms-excel'] }
   before_save :parse_file
 
   def parse_file
@@ -21,7 +21,7 @@ class Dataset < ActiveRecord::Base
       puts @record
 
       # Create a row in the DB for each row in the CSV
-      CSV.parse(text, :headers => true, :force_quotes => true, :encoding => "ISO8859-1:utf-8") do |row|
+      CSV.parse(text, :headers => true) do |row|
         new_hash = {}
         row.to_hash.each_pair do |k,v|
           if !v.nil?
