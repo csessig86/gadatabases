@@ -25,7 +25,7 @@ class Dataset < ActiveRecord::Base
         new_hash = {}
         row.to_hash.each_pair do |k,v|
           if !v.nil?
-            v = v.force_encoding('iso-8859-1').encode('utf-8')
+            v = v.force_encoding('WINDOWS-1252').encode('utf-8')
           end
           new_hash.merge!({k.downcase => v}) 
         end
