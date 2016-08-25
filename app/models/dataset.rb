@@ -3,7 +3,7 @@ require 'csv'
 class Dataset < ActiveRecord::Base
 	has_many :records
   has_attached_file :file
-  validates_attachment :file, presence: true, :content_type => { content_type: 'text/csv' }
+  validates_attachment :file, presence: true, :content_type => { content_type: ['text/csv','application/vnd.ms-excel'] }
   before_save :parse_file
 
   def parse_file
