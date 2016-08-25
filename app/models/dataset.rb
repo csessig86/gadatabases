@@ -21,7 +21,7 @@ class Dataset < ActiveRecord::Base
       puts @record
 
       # Create a row in the DB for each row in the CSV
-      CSV.parse(text, headers: true) do |row|
+      CSV.parse(text, :headers => true, :force_quotes => true, :encoding => "ISO8859-1:utf-8") do |row|
         new_hash = {}
         row.to_hash.each_pair do |k,v|
           if !v.nil?
