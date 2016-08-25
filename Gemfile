@@ -37,7 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.4.1'
 
 # Paperclip for file uploading
-gem 'paperclip', '~> 4.3.1'
+gem 'paperclip', '5.1.0'
 
 # Bootstrap for styling
 gem 'bootstrap-sass', '~> 3.2.0.0'
