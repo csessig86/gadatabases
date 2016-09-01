@@ -1,1 +1,1 @@
-city:string address:string category:string buildingtype:string newalterationaddition:string valuation:integer permitholder:text issuance:date county:string
+name:string jobtitle:string department:string fy16wages:integer fy17annualrate:integer
