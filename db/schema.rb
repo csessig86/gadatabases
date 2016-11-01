@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101170020) do
+ActiveRecord::Schema.define(version: 20161101174130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,16 @@ ActiveRecord::Schema.define(version: 20161101170020) do
     t.integer  "travel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "record8s", force: :cascade do |t|
+    t.string   "name"
+    t.string   "jobtitle"
+    t.string   "department"
+    t.integer  "fy16wages"
+    t.integer  "fy17annualrate"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|

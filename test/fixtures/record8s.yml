@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  jobtitle: MyString
+  department: MyString
+  fy16wages: 1
+  fy17annualrate: 1
+
+two:
+  name: MyString
+  jobtitle: MyString
+  department: MyString
+  fy16wages: 1
+  fy17annualrate: 1

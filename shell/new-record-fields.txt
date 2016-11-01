@@ -1,1 +1,1 @@
-department:string name:string gender:string position:string salary:integer travel:integer
+name:string jobtitle:string department:string fy16wages:integer fy17annualrate:integer

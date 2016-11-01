@@ -1,0 +1,35 @@
+<% excluded_columns = ['id', 'created_at', 'updated_at'] %>
+
+<% @record.columns.map(&:name).each do |column_name| %>
+	<% if !excluded_columns.include? column_name %>
+
+		<!-- Renaming columns -->
+		<% if column_name == 'fy16wages' %>
+			<% output = column_name + ' | FY 16 rate' %>
+		<% elsif column_name == 'fy17annualrate' %>
+			<% output = column_name + ' | FY 17 rate' %>
+		<% else %>
+			<% output = column_name + ' | ' + column_name.capitalize %>
+		<% end %>
+
+		<% if type == 'th' %>
+			<th><%= sortable output %></th>
+
+		<% elsif type == 'td' %>
+		
+			<!-- Example of how to do numbers -->
+			<% if column_name == 'fy16wages' || column_name == 'fy17annualrate' %>
+				<td class="number" data-title="<%= output.split(" | ")[1] %>">
+					<% if record[column_name] != nil %>
+						$<%= number_with_delimiter(record[column_name], :delimiter => ',') %>
+					<% end %>
+				</td>
+			<% else %>
+				<td data-title="<%= output.split(" | ")[1] %>">
+					<%= record[column_name] %>
+				</td>
+			<% end %>
+
+		<% end %>
+	<%end %>
+<% end %>
