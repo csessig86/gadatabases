@@ -4,34 +4,21 @@
 	<% if !excluded_columns.include? column_name %>
 
 		<!-- Renaming columns -->
-		<% if column_name == 'jobtitle' %>
-			<% output = column_name + ' | Title' %>
-		<% elsif column_name == 'fy16wages' %>
-			<% output = column_name + ' | 2016 wages' %>
-		<% elsif column_name == 'fy17annualrate' %>
-			<% output = column_name + ' | 2017 annual rate' %>
+		<% if column_name == 'Column to rename' %>
+			<% output = column_name + ' | Renamed column' %>
 		<% else %>
-			<% output = column_name + ' | ' + column_name %>
+			<% output = column_name + ' | ' + column_name.capitalize %>
 		<% end %>
 
 		<% if type == 'th' %>
-			<% if column_name == 'fy16wages' || column_name == 'fy17annualrate' %>
-				<th style="width:5%"><%= sortable output %></th>
-			<% elsif column_name == 'jobtitle' || column_name == 'name' %>
-				<th style="width:25%"><%= sortable output %></th>
-			<% else %>
-				<th><%= sortable output %></th>
-			<% end %>
+			<th><%= sortable output %></th>
 
 		<% elsif type == 'td' %>
 		
 			<!-- Example of how to do numbers -->
-			<% if column_name == 'fy16wages' || column_name == 'fy17annualrate' %>
+			<% if column_name == 'Column with numbers' %>
 				<td class="number" data-title="<%= output.split(" | ")[1] %>">
-					<% if !record[column_name].nil? %>
-						$<%= number_with_delimiter(record[column_name], :delimiter => ',') %>
-					<% else %>
-					<% end %>
+					$<%= number_with_delimiter(record[column_name], :delimiter => ',') %>
 				</td>
 			<% else %>
 				<td data-title="<%= output.split(" | ")[1] %>">
