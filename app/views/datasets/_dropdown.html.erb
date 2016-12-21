@@ -11,6 +11,8 @@
         Citation
       <% elsif @id == "2" && text.squish.to_s == 'intersectiondetails' %>
         Intersection
+      <% elsif @id == "2" && text.squish.to_s == 'city' %>
+        Address
       <% else %>
         <%= text.squish.to_s.capitalize %>
       <% end %>  
