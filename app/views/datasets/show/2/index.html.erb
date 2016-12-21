@@ -26,8 +26,8 @@ og: {
     <table id="table" class="table">
       <thead>
         <tr>
-        	<th><%= sortable "name | Name" %></th>
-          <th><%= sortable "city | City" %></th>
+        	<th><%= sortable "name | Offender" %></th>
+          <th><%= sortable "city | Offender's address" %></th>
           <th><%= sortable "violationdate | Date" %></th>
           <th><%= sortable "citationtype | Citation" %></th>
           <th><%= sortable "intersectiondetails | Intersection" %></th>
@@ -37,8 +37,8 @@ og: {
       <tbody>
       	<% @record.paginate(:page => params[:page]).each do |record| %>
           <tr>
-            <td data-title="Name:"><%= record["name"] %></td>
-            <td data-title="City:"><%= record["city"] %>, <%= record["state"] %></td>
+            <td data-title="Offender:"><%= record["name"] %></td>
+            <td data-title="Offender's address:"><%= record["city"] %>, <%= record["state"] %></td>
             <td data-title="Date:"><%= record["violationdate"] %></td>
             <td data-title="Citation:"><%= record["citationtype"] %></td>
             <td data-title="Intersection:"><%= record["intersectiondetails"] %></td>

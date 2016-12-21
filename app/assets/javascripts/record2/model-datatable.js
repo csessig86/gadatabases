@@ -19,19 +19,19 @@ var table = new Table({
 	        // "sType": "formatted-num",
 	        // "bSortable": false
 	    },{
+	        "sWidth": "10%"
+	        // "sType": "formatted-num",
+	        // "bSortable": false
+	    },{
+	        "sWidth": "10%"
+	        // "sType": "formatted-num",
+	        // "bSortable": false
+	    },{
 	        "sWidth": "20%"
 	        // "sType": "formatted-num",
 	        // "bSortable": false
 	    },{
-	        "sWidth": "10%"
-	        // "sType": "formatted-num",
-	        // "bSortable": false
-	    },{
-	        "sWidth": "10%"
-	        // "sType": "formatted-num",
-	        // "bSortable": false
-	    },{
-	        "sWidth": "10%"
+	        "sWidth": "5%"
 	        // "sType": "formatted-num",
 	        // "bSortable": false
 	    }

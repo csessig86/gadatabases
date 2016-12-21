@@ -7,6 +7,10 @@
         Type
       <% elsif @id == "6" && text.squish.to_s == 'newalterationaddition' %>
         Status
+      <% elsif @id == "2" && text.squish.to_s == 'citationtype' %>
+        Citation
+      <% elsif @id == "2" && text.squish.to_s == 'intersectiondetails' %>
+        Intersection
       <% else %>
         <%= text.squish.to_s.capitalize %>
       <% end %>  

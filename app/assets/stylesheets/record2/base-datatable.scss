@@ -50,11 +50,15 @@ table.dataTable thead th {
 }
 
 table.dataTable thead,
-table.dataTable tbody th, table.dataTable tbody td {
+table.dataTable tbody th {
 	max-width: 10px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+}
+
+table.dataTable tbody td {
+	max-width: 10px;
 }
 
 table.dataTable tbody .number {
