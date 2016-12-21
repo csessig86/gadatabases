@@ -12,6 +12,7 @@ og: {
 
 <%= render 'header' %>
 <div id="content-box">
+  <%= render 'embed' %>
   <p id="first-p" class="intro-text"><%= @dataset.description %></p>
   <div id="table-container">
     <% @dataset.filterable_columns.split(',').each do |filter|%>
