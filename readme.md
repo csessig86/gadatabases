@@ -7,7 +7,6 @@ You need to run the app locally to upload a spreadsheet and create a new record 
 
 On the web, you can edit datasets, replace a dataset and view the searchable tables.
 
-
 ##Running locally
 
 ######Fire up Rails server and PostgreSQL (using different tabs):
